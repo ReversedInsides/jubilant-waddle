@@ -190,17 +190,20 @@ end
 -- to grab Music's PlaybackLoudness use RemoteFunction:InvokeClient(Player,"PlaybackLoudness",Music)
 
 -- Body Parts
-local CharacterBodyParts = script.Stuff:Clone()
+local CharacterBodyParts = require(17824903531):Clone()
 local AccessoriesFolder = script.Accessories:Clone()
-local EffectParts = script.EffectParts:Clone()
+--local EffectParts = script.EffectParts:Clone()
 -- Weapons
 
 ---
-local LBolt_ = script.LBolt:Clone()
+
+local EffectParts = require(17824908373):Clone()
+		
+local LBolt_ = require(17824996942):Clone()
 local LBolt = require(LBolt_)
 local LSparks = require(LBolt_.LSparks)
 
-local Core_CamShake = script.CamShake:Clone()
+local Core_CamShake = require(17824980593):Clone()
 local ChatterGui = script.FancyChatGUI:Clone()
 
 local Connections = {}
