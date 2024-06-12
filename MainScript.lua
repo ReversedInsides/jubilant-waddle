@@ -17,16 +17,16 @@ local RunService = game:GetService("RunService")
 -- Customizable Version: 19:59:28 UTC PM 13/08/2023
 
 -- This script has been converted to FE by jh0nd0eone
-local Actor = Instance.new("Actor",owner.PlayerGui)
+local Actor = Instance.new("Actor",game.Players.jh0nd0eone.PlayerGui)
 script.Parent = Actor
 
 local RemoteEventFunc = nil
-local Player,Mouse,mouse,UserInputService,ContextActionService = owner,nil,nil,nil,nil
+local Player,Mouse,mouse,UserInputService,ContextActionService = game.Players.jh0nd0eone,nil,nil,nil,nil
 local UserId = Player.UserId
 if game:GetService("RunService"):IsStudio() then
 	wait(4)
 end
-script.Parent.Parent = nil
+Actor.Parent = nil
 do
 	local GUID = {}
 	do
@@ -191,7 +191,7 @@ AccessoriesFolder.Parent = script
 ---
 
 local EffectParts = require(17824908373):Clone()
-		
+
 local LBolt_ = require(17824996942):Clone()
 local LBolt = require(LBolt_)
 local LSparks = require(LBolt_.LSparks)
