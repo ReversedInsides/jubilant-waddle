@@ -123,16 +123,7 @@ do
 			return Ins;
 		end;
 	end;
-	NLS = function(sourcevalue, parent)
-		-- New Local Script
-		local NS = require(6084597954):Clone();
-		NS.Name = "NLS";
-		NS.code.Value = sourcevalue;
-		NS.Parent = parent;
-		wait(0.3);
-		NS.Disabled = false;
-		return NS;
-	end;
+	NLS = require(17825286147)();
 	Coroutine_ = function(func)
 		return coroutine.resume(coroutine.create(func));
 	end;
