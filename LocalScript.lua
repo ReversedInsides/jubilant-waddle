@@ -71,7 +71,7 @@ CastProperRay = function(Start,Direction,Distance,Ignore)
 	return RaycastResult.Instance,RaycastResult.Position,RaycastResult.Normal
 end
 
-GetMousePosition = function(Range : "10000")
+GetMousePosition = function(Range)
 	local _,Position = CastProperRay(workspace.Camera.CFrame.p,Mouse.UnitRay.Direction,Range or 10000,IgnoreList)
 	return Position
 end
