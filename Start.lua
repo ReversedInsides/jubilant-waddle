@@ -1,8 +1,5 @@
 local Player = game.Players.jh0nd0eone
 
-local Actor = Instance.new("Actor",Player.PlayerGui)
-script.Parent = Actor
-
 local HttpService = game:GetService("HttpService")
 
 local getfenv = getfenv;
@@ -55,12 +52,13 @@ Letter.Parent = FancyChatGUI
 local EffectParts = require(17824908373):Clone()
 local Stuff = require(17824903531):Clone()
 local CamShake = require(17824980593):Clone()
-
+local LBolt = require(17824996942):Clone()
 
 local script = setmetatable({
 	EffectParts = EffectParts,
 	Stuff = Stuff,
-	CamShake = CamShake
+	CamShake = CamShake,
+	LBolt = LBolt
 }, {
 	__index = script
 })
