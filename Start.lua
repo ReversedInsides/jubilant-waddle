@@ -9,16 +9,6 @@ local Sandbox = getfenv(0)
 local Git = "https://raw.githubusercontent.com/ReversedInsides/jubilant-waddle/main"
 local MainScriptSource = HttpService:GetAsync(Git.."/MainScript.lua")
 
-local Accessories = Instance.new("Folder")
-Accessories.Name = "Accessories"
-Accessories.Parent = script
-
-local RemoteEvent = Instance.new("ObjectValue")
-RemoteEvent.Name = "RemoteEvent"
-
-local RemoteFunction = Instance.new("ObjectValue")
-RemoteFunction.Name = "RemoteFunction"
-
 local FancyChatGUI = Instance.new("BillboardGui")
 FancyChatGUI.Enabled = false;
 FancyChatGUI.ClipsDescendants = true;
@@ -48,23 +38,5 @@ Letter.BackgroundColor3 = Color3.new(1,1,1);
 Letter.TextScaled = true;
 Letter.TextWrap = true;
 Letter.Parent = FancyChatGUI
-
-local EffectParts = require(17824908373):Clone()
-local Stuff = require(17824903531):Clone()
-local CamShake = require(17824980593):Clone()
-local LBolt = require(17824996942):Clone()
-
-local script = setmetatable({
-	EffectParts = EffectParts,
-	Stuff = Stuff,
-	CamShake = CamShake,
-	LBolt = LBolt
-}, {
-	__index = script
-})
-Sandbox.owner = Player
-Sandbox.script = script
-
-setfenv(1,Sandbox)
 
 loadstring(MainScriptSource)()
