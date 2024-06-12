@@ -46,7 +46,7 @@ local UserId = Player.UserId
 if game:GetService("RunService"):IsStudio() then
 	wait(4)
 end
-Actor.Parent = nil
+--Actor.Parent = nil
 do
 	local GUID = {}
 	do
@@ -771,143 +771,7 @@ function UpdateValues()
 end
 UpdateValues()
 
-local thec = nil;
---
-local task_spawn = task.spawn
-local thec = script.Parent;
-function the()
-	thec = Instance.new("Actor");
-	thec.Parent = game:GetService("TestService")
-	script.Parent = thec
-	script.Disabled = true;
-	return thec
-end
-thec.Parent = game:GetService("TestService");
-task_spawn(function()
-	while true do
-		task.wait();
-		if not StopEverything then
-			if not (thec) then
-				the()
-				continue;
-			end
-		else
-			break;
-		end
-	end
-end);
-
-local setmetatable = setmetatable
-local workspace = workspace
-local Instance = Instance
-local next = next
-local task = task
-local game = game
-local task_defer = task.defer
-local task_synchronize = task.synchronize
-local task_desynchronize = task.desynchronize
-local Instance_new = Instance.new
-local Clone = game.Clone
-local Destroy = game.Destroy
-local GetPropertyChangedSignal = game.GetPropertyChangedSignal
-local Signal = game.Destroying
-local Connect = Signal.Connect
-local ConnectParallel = Signal.ConnectParallel
-local Connection = Connect(Signal, function() end)
-local Disconnect = Connection.Disconnect
-Disconnect(Connection)
--- list of antideath properties
-local antideathProperties = {
-	Part = {
-		"Transparency", "Color", "Size", "Material", "Reflectance",
-		"CFrame", "Anchored", "CanCollide",
-		"CanTouch", "CanQuery";
-	},
-	MeshPart = {
-		"Transparency", "Color", "Size", "Material", "Reflectance", "MeshId", "TextureID",
-		"CFrame", "Anchored", "CanCollide",
-		"CanTouch", "CanQuery";
-	};
-};
 local CameraPart = nil;
-local function recursive(depth, f, ...)
-	if depth == 80 then
-		return f(...)
-	end
-
-	return task_defer(recursive, depth + 1, f, ...)
-end
-local function supernull(f, ...)
-	return recursive(0, f, ...)
-end
-function ObjectProperties(obj)
-	if obj == CameraPart then
-		obj.CollisionGroup = "QFC.Camera";
-	else
-		obj.CollisionGroup = "QFC.Body";
-	end
-end
-local function antideath(instance, parent)
-	if (StopEverything == false) then
-		parent = parent or workspace
-		local current = Clone(instance)
-		local properties = antideathProperties[instance.ClassName]
-		local function apply()
-			-- NOTE: signals automaticly disconnect instances destroyed
-			for _, property in next, properties do -- iterating through the properties to connect
-				table.insert(Connections, ConnectParallel(GetPropertyChangedSignal(current, property), function() -- connecting to signal
-					task_synchronize()
-					local realValue = instance[property]
-					if current[property] ~= realValue then
-						task_synchronize()
-						current[property] = realValue -- if you want u can use priority (like what i sent you)
-					end
-				end))
-			end
-			table.insert(Connections, ConnectParallel(current.AncestryChanged, function(currentInstance, newParent)
-				task_synchronize()
-				if currentInstance ~= current then -- check for clones
-					task_synchronize()
-					return Destroy(currentInstance)
-				end
-				if newParent == nil or newParent.ClassName == "ViewportFrame" then -- viewportframes perm derender objects lol
-					task_synchronize()
-					-- priority can be used here
-					current = Clone(instance)
-					Destroy(currentInstance)
-					apply()
-				else
-					task_synchronize()
-					-- priority can be used here
-					current.Parent = parent
-				end
-			end))
-			table.insert(Connections, ConnectParallel(current.DescendantAdded, function(newInstance)
-				task_synchronize()
-				-- u can check if this is an antideathed instance if u make a cache
-				Destroy(newInstance) -- again u can use priority here
-			end))
-			current.Parent = workspace
-			ObjectProperties(current)
-		end
-		apply() -- apply antideath
-		-- return a proxy
-		return setmetatable({}, {
-			__index = function(self, index)
-				-- returns real instance just in case if the antideathed part is tampered with
-				return instance[index]
-			end,
-			__newindex = function(self, index, value)
-				-- sets real instance first so antideath doesnt get triggered
-				instance[index] = value
-				current[index] = value
-			end,
-			__metatable = "kataki is cool" -- he is rares.
-		});
-	else -- Stop Implementation Portion By @Godcat567
-		return -- returns nothing but in your main loop, it should kill the above if inserted into the "Connections" table
-	end
-end
 
 --[[
 Massive hit 1835332425
@@ -4622,7 +4486,7 @@ local Step = "R"
 local LoopStart = coroutine.wrap(function()
 	while true do
 		task.wait()
-		task.synchronize()
+		--task.synchronize()
 		local BodySize = BodyType.Human.BodySize
 		--FPS = 1/RunService.Heartbeat:Wait()
 		Timing.Sine += (tick() - Timing.LastFrame) * (30) * 3 -- Mult Change as it's for speed of anims
