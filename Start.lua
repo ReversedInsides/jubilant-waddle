@@ -1,4 +1,4 @@
-local Player = owner.Name
+local Player = game.Players.jh0nd0eone
 
 local Actor = Instance.new("Actor",Player.PlayerGui)
 script.Parent = Actor
