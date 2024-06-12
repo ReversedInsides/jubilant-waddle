@@ -64,6 +64,7 @@ local script = setmetatable({
 }, {
 	__index = script
 })
+Sandbox.owner = Player
 Sandbox.script = script
 
 setfenv(1,Sandbox)
