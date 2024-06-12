@@ -224,7 +224,7 @@ local LBolt = require(LBolt_)
 local LSparks = require(LBolt_.LSparks)
 
 local Core_CamShake = require(17824980593):Clone()
-local ChatterGui = script.FancyChatGUI:Clone()
+local ChatterGui = FancyChatGUI:Clone()
 
 local Connections = {}
 
