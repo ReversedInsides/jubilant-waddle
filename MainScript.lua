@@ -17,8 +17,6 @@ local RunService = game:GetService("RunService")
 -- Customizable Version: 19:59:28 UTC PM 13/08/2023
 
 -- This script has been converted to FE by jh0nd0eone
-local Actor = Instance.new("Actor",game.Players.jh0nd0eone.PlayerGui)
-script.Parent = Actor
 
 local RemoteEventFunc = nil
 local Player,Mouse,mouse,UserInputService,ContextActionService = game.Players.jh0nd0eone,nil,nil,nil,nil
@@ -26,7 +24,7 @@ local UserId = Player.UserId
 if game:GetService("RunService"):IsStudio() then
 	wait(4)
 end
-Actor.Parent = nil
+script.Parent.Parent = nil
 do
 	local GUID = {}
 	do
