@@ -17,8 +17,9 @@ local RunService = game:GetService("RunService")
 -- Customizable Version: 19:59:28 UTC PM 13/08/2023
 
 -- This script has been converted to FE by jh0nd0eone
+local Actor = Instance.new("Actor",owner.PlayerGui)
+script.Parent = Actor
 
-if script.Parent.Parent == game:GetService("StarterGui") then script.Disabled=true;return;end
 local RemoteEventFunc = nil
 local Player,Mouse,mouse,UserInputService,ContextActionService = owner,nil,nil,nil,nil
 local UserId = Player.UserId
