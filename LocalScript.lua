@@ -34,8 +34,8 @@ end
 
 local Sine = 0
 
-local RemoteFunction0 = script.RemoteFunction
-local RemoteEvent0 = script.RemoteEvent
+local RemoteFunction0 = script:WaitForChild("RemoteFunction")
+local RemoteEvent0 = script:WaitForChild("RemoteEvent")
 
 local RemoteFunction = script.RemoteFunction.Value
 local RemoteEvent = script.RemoteEvent.Value
