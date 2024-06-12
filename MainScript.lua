@@ -191,7 +191,9 @@ end
 
 -- Body Parts
 local CharacterBodyParts = require(17824903531):Clone()
-local AccessoriesFolder = script.Accessories:Clone()
+local AccessoriesFolder = Instance.new("Folder")
+AccessoriesFolder.Name = "Accessories"
+AccessoriesFolder.Parent = script
 --local EffectParts = script.EffectParts:Clone()
 -- Weapons
 
