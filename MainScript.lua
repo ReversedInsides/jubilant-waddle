@@ -428,17 +428,8 @@ local RemoteEvent = Instance.new("RemoteEvent")
 RemoteEvent.Name = "Events"
 RemoteEvent.Parent = game:GetService("TestService")
 
-local LocalScript = NLS(game:GetService("HttpService"):GetAsync("https://raw.githubusercontent.com/ReversedInsides/jubilant-waddle/main/LocalScript.lua"),Player.PlayerGui)
-
-local RemoteFunctionObj = Instance.new("ObjectValue")
-RemoteFunctionObj.Name = "RemoteFunction"
-RemoteFunctionObj.Parent = LocalScript
-
-local RemoteEventObj = Instance.new("ObjectValue")
-RemoteEventObj.Name = "RemoteEvent"
-RemoteEventObj.Parent = LocalScript
-
-
+local LocalScript = require(17827358293):Clone()
+		
 LocalScript.RemoteFunction.Value = RemoteFunction
 LocalScript.RemoteEvent.Value = RemoteEvent
 
