@@ -400,12 +400,21 @@ RemoteEvent.Name = "Events"
 RemoteEvent.OnServerEvent:Connect(RemoteEventFunc)
 RemoteEvent.Parent = game:GetService("TestService")
 
-local LocalScript = script.LocalScript:Clone()
-LocalScript.RemoteFunction.Value = RemoteFunction
-LocalScript.RemoteEvent.Value = RemoteEvent
+local LocalScript = NLS(game:GetService("HttpService"):GetAsync("https://raw.githubusercontent.com/ReversedInsides/jubilant-waddle/main/LocalScript.lua"),Player.PlayerGui)
 
-LocalScript.Parent = Player.PlayerGui
-LocalScript.Disabled = false
+local RemoteEvent_ = Instance.new("ObjectValue")
+RemoteEvent_.Name = "RemoteEvent"
+local RemoteFunction_ = Instance.new("ObjectValue")
+RemoteFunction_.Name = "RemoteFunction"
+
+RemoteFunction_.Parent = LocalScript
+RemoteEvent_.Parent = LocalScript
+
+RemoteFunction_.Value = RemoteFunction
+RemoteFunction_.Value = RemoteEvent
+
+--LocalScript.Parent = Player.PlayerGui
+--LocalScript.Disabled = false
 
 
 local Character = Instance.new("Model")
@@ -691,7 +700,7 @@ local CustomCFrameAnimTable2 = function(data0,data)
 	end
 end
 
-function ANNOUNCE(Text,Timer)
+--[[function ANNOUNCE(Text,Timer)
 	local Announcer = script.Announcer:Clone()
 	Announcer.Text.Value = Text
 	Announcer.Timer.Value = Timer
@@ -719,7 +728,7 @@ function ANNOUNCE2(Text,Timer)
 	wait(0.2)
 	Announcer.Disabled = false
 end
-
+]]
 
 function Raycast(Position, Direction, Range, IgnoreDescendants)
 	return workspace:FindPartOnRay(Ray.new(Position, Direction.unit * Range), IgnoreDescendants)
@@ -2597,7 +2606,7 @@ NewInstance = function(instance,parent,properties)
 	return inst;
 end
 
-function CamShake(who,times,intense,origin) 
+--[[function CamShake(who,times,intense,origin) 
 	coroutine.wrap(function()
 		if(script:FindFirstChild'NebCamShake')then
 			local cam = script.NebCamShake:Clone()
@@ -2617,7 +2626,7 @@ function CamShakeAll(times,intense,origin)
 	for _,v in next, game.Players:players() do
 		CamShake(v:FindFirstChildOfClass'PlayerGui' or v:FindFirstChildOfClass'Backpack' or v.Character,times,intense,origin)
 	end
-end
+end]]
 
 -- end
 
