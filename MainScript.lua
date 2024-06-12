@@ -1,11 +1,3 @@
---[[local getfenv = getfenv;
-local setfenv = setfenv;
-local meow = getfenv()
-meow.script = script
-setfenv(1,meow)
-loadstring(game:GetService("HttpService"):GetAsync(script.UrlSource.Value))()]]
-
-
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local PhysicsService = game:GetService("PhysicsService")
