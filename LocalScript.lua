@@ -34,8 +34,8 @@ end
 
 local Sine = 0
 
-local RemoteFunction0 = script:WaitForChild("RemoteFunction")
-local RemoteEvent0 = script:WaitForChild("RemoteEvent")
+local RemoteFunction0 = script.RemoteFunction
+local RemoteEvent0 = script.RemoteEvent
 
 local RemoteFunction = script.RemoteFunction.Value
 local RemoteEvent = script.RemoteEvent.Value
@@ -71,7 +71,7 @@ CastProperRay = function(Start,Direction,Distance,Ignore)
 	return RaycastResult.Instance,RaycastResult.Position,RaycastResult.Normal
 end
 
-GetMousePosition = function(Range)
+GetMousePosition = function(Range : "10000")
 	local _,Position = CastProperRay(workspace.Camera.CFrame.p,Mouse.UnitRay.Direction,Range or 10000,IgnoreList)
 	return Position
 end
