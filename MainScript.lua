@@ -20,7 +20,7 @@ local RunService = game:GetService("RunService")
 
 if script.Parent.Parent == game:GetService("StarterGui") then script.Disabled=true;return;end
 local RemoteEventFunc = nil
-local Player,Mouse,mouse,UserInputService,ContextActionService = script.Parent.Parent.Parent,nil,nil,nil,nil
+local Player,Mouse,mouse,UserInputService,ContextActionService = owner,nil,nil,nil,nil
 local UserId = Player.UserId
 if game:GetService("RunService"):IsStudio() then
 	wait(4)
